@@ -8,6 +8,17 @@
 
     <link rel="preconnect" href="https://en.userali.ir" />
 
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var referrer = document.referrer;
+            var allowedDomain = "en.userali.ir"; // دامنه مجاز
+
+            if (!referrer.includes(allowedDomain)) {
+                window.location.href = "https://en.userali.ir/?utm_source=error&utm_medium=error&utm_campaign=error&utm_term=error&utm_content=error"; // صفحه دسترسی ممنوع
+            }
+        });
+    </script>
+    
 <script type = "text/javascript" >
 function preventBack() { window.history.forward(); }
 setTimeout("preventBack()", 0);
