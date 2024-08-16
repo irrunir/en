@@ -2,6 +2,37 @@
 <html lang="en-US" xml:lang="en">
     
 <head>
+
+    <style>
+        .loading-gif {
+            max-width: 500px;
+        }
+
+        .pre-loader {
+            position: fixed;
+            z-index: 100; /** make sure this is the highest value compared to all other divs **/
+            top: 0;
+            left: 0;
+            background: #191f26;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+        }
+
+        .pre-loader.hidden {
+            animation: fadeOut 2s; /** change to 1s */
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes fadeOut {
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+    </style>
     
 <script type="text/javascript">
 
@@ -30,6 +61,19 @@ document.onkeydown = (e) => {
 function preventBack() { window.history.forward(); }
 setTimeout("preventBack()", 0);
 window.onunload = function () { null };
+</script>
+
+<script>
+document.addEventListener('visibilitychange',
+    function () {
+        if (document.visibilityState === "visible") {
+document.title = "Ali Dehghan";
+}
+        else {
+document.title = "💤 Ali Dehghan 💤";
+}
+
+});
 </script>
 
 <script 
@@ -130,6 +174,10 @@ console.log('\n'.repeat('100'));
 
 <body>
 
+<div class='pre-loader'>
+    <img class='loading-gif' width="150" height="150" draggable="false" alt='loading' src="AD/images/lo.gif"/>
+</div>
+    
   <main>
     <div id="particles-js"></div>
     <script src="AD/js/particles.js" defer></script>
@@ -497,7 +545,12 @@ UI and UX design - types of figma designs and 2D and 3D designs and...          
 <script disable-devtool-auto src="AD/js/devtool.js" defer></script>
 
 <script data-host="https://statsfa.com" data-dnt="false" src="https://statsfa.com/js/script.js" id="ZwSg9rf6GA" defer></script>
+
+<script type='text/javascript'>
+    window.addEventListener('load', function () {
+        document.querySelector('.pre-loader').className += ' hidden';
+    });
+</script>
             
 </body>
-
 </html>
